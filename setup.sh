@@ -7,12 +7,14 @@ default_path["zshrc"]="$HOME/.zshrc"
 default_path["nvim"]="$HOME/.config/nvim"
 default_path["tmux"]="$HOME/.tmux.conf"
 default_path["editorconfig"]="$HOME/.editorconfig"
+default_path["oh-my-zsh"]="$HOME/.oh-my-zsh"
 
 dotfile_path["bashrc"]="$PWD/bashrc/.bashrc"
 dotfile_path["zshrc"]="$PWD/zshrc/.zshrc"
 dotfile_path["nvim"]="$PWD/nvim/nvim-lucas-lxx/"
 dotfile_path["tmux"]="$PWD/tmux/.tmux.conf"
 dotfile_path["editorconfig"]="$PWD/editorconfig/.editorconfig"
+default_path["oh-my-zsh"]="$PWD/oh-my-zsh/.oh-my-zsh"
 
 for i in *; do
   z="${default_path["$i"]}"
@@ -28,7 +30,7 @@ for i in *; do
       case "$ans" in
         [yY]) # If yes
           echo "overwriting $z"
-          rm "$z"
+          rm -rf "$z"
           ln -s "${dotfile_path["$i"]}" "${default_path["$i"]}"
           break
           ;;
