@@ -116,5 +116,27 @@ if ! shopt -oq posix; then
   fi
 fi
 
+mv_to_oldpwd() {
+    # Check if a filename was provided
+    if [[ -z "$1" ]]; then
+        echo "Usage: mv_to_oldpwd <filename>"
+        return 1
+    fi
+    
+    # Check if $OLDPWD is set
+    if [[ -z "$OLDPWD" ]]; then
+        echo "Error: \$OLDPWD is not set."
+        return 1
+    fi
+
+    # Move the file to $OLDPWD
+    mv "./$1" "$OLDPWD/$1"
+    
+    # Print success message
+    echo "Moved $1 to $OLDPWD"
+}
 
 # my aliases
+alias v='nvim'
+alias mvod='mv_to_oldpwd'
+alias back='cd $OLDPWD'
