@@ -78,6 +78,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
+plugins=(git direnv sudo zsh-history-substring-search zsh-syntax-highlighting zsh-autosuggestions)
 
 # Customize vi-mode plugin cursor shapes
 VI_MODE_SET_CURSOR=true
@@ -154,8 +155,14 @@ export NVM_DIR="$HOME/.nvm"
 
 bindkey -v
 
-bindkey -M vicmd 'k' up-line-or-search
-bindkey -M vicmd 'j' down-line-or-search
-bindkey -M viins '^H' backward-kill-word
+# History substring search keybindings for vi insert mode
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+bindkey -M viins '^[[A' history-substring-search-up    # Up arrow
+bindkey -M viins '^[[B' history-substring-search-down  # Down arrow
+bindkey -M viins '^P' history-substring-search-up
+bindkey -M viins '^N' history-substring-search-down
 
 export PATH=$PATH:$HOME/go/bin
+
+eval "$(direnv hook zsh)"
