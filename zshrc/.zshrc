@@ -166,3 +166,5 @@ bindkey -M viins '^N' history-substring-search-down
 export PATH=$PATH:$HOME/go/bin
 
 eval "$(direnv hook zsh)"
+
+eval $(keychain --eval ~/.ssh/*.pem &>/dev/null)
