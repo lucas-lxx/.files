@@ -143,6 +143,8 @@ alias la='ls -A'
 alias l='ls -CF'
 alias v='nvim'
 alias back='cd $OLDPWD'
+alias upg='sudo apt upgrade -y'
+alias updt='sudo apt update -y'
 
 
 
@@ -168,3 +170,9 @@ export PATH=$PATH:$HOME/go/bin
 eval "$(direnv hook zsh)"
 
 eval $(keychain --eval ~/.ssh/*.pem &>/dev/null)
+
+. "$HOME/.local/bin/env"
+
+export WORKON_HOME=$HOME/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=$HOME/.local/share/pipx/venvs/virtualenvwrapper/bin/python
+source ~/.local/bin/virtualenvwrapper.sh

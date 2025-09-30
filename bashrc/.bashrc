@@ -142,3 +142,5 @@ alias mvod='mv_to_oldpwd'
 alias back='cd $OLDPWD'
 
 export NODE_DEP_AWS='54.207.18.133'
+
+. "$HOME/.local/bin/env"
